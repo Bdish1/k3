@@ -39,7 +39,6 @@ class Assembler:
         }
 
     def format_intermediate(self, cmd):
-        # Имитируем опкоды для вывода (как в оригинале)
         opcode_map = {
             'LOAD_CONST': 45,
             'READ_MEM': 31,
@@ -52,7 +51,6 @@ class Assembler:
         return f"{cmd['cmd_name']}: {', '.join(field_str)}"
 
     def parse_only(self, source_file):
-        """Выполняет ТОЛЬКО этап 1: парсинг и вывод."""
         try:
             with open(source_file, 'r') as f:
                 lines = f.readlines()
@@ -70,7 +68,6 @@ class Assembler:
                 print(f"Ошибка в строке {line_num}: {e}")
                 return False
 
-        # Вывод промежуточного представления
         print("Промежуточное представление:")
         for cmd in intermediate:
             print(self.format_intermediate(cmd))
