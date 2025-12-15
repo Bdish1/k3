@@ -1,3 +1,6 @@
+import sys;
+import json;
+
 class Assembler:
     def __init__(self):
         self.commands = {
